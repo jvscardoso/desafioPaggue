@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,700&family=Poppins:wght@300&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+html, 
+body,
+#root,
+.app,
+.content{
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.app{
+  display: flex;
+  position: relative;
+}
