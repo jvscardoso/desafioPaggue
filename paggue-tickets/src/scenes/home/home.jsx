@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { Box, Typography } from '@mui/material'
-import CaixaEvento from '../../components/caixaEvento'
-import CaixaDestaque from '../../components/caixaDestaque'
+import CaixaEvento from '../../components/CaixaEvento'
+import CaixaDestaque from '../../components/CaixaDestaque'
 import show1 from '../../img/show1.jpg'
 import show2 from '../../img/show2.jpg'
 import show3 from '../../img/show3.jpg'
