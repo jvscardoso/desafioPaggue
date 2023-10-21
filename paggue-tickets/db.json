@@ -1,19 +1,91 @@
 {
-  "posts": [
+  "eventos": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Festa de inauguração",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCvCm90-sdIJ4ilghJIgVSwXhH91jKVoLG0zexwMZ0&s",
+      "address": "Feira de Santana - Bahia",
+      "date": "23/10/2023",
+      "horas": "19:00",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proid ent, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "typeEvent": "Show",
+      "ingresso": {
+        "setor": [
+          {
+            "nome": "VIP",
+            "capacidade": "100",
+            "ticketDisponivel": "10",
+            "valorTicket": "99"
+          },
+          {
+            "nome": "Inteira",
+            "capacidade": "1000",
+            "ticketDisponivel": "10",
+            "valorTicket": "50"
+          }
+        ],
+        "cupom": {
+          "nome": "DESCONTAO",
+          "valor": "50",
+          "qtd": "10",
+          "expirationDate": "15/09/2023"
+        }
+      },
+      "id": 1
+    },
+    {
+      "title": "Alok em: O show do século",
+      "imageUrl": "https://media.fstatic.com/cGo2lBVWjqCFU8XcfJ2n3yDRGuc=/210x312/smart/filters:format(webp)/media/movies/covers/2023/08/cats_vxssUqt.jpg",
+      "address": "Rio de Janeiro | Brasil",
+      "date": "23/10/2023",
+      "horas": "22:00",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proid ent, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "typeEvent": "Show",
+      "ingresso": {
+        "setor": [
+          {
+            "nome": "VIP",
+            "capacidade": "100",
+            "ticketDisponivel": "100",
+            "valorTicket": "99"
+          },
+          {
+            "nome": "Inteira",
+            "capacidade": "1000",
+            "ticketDisponivel": "1000",
+            "valorTicket": "50"
+          }
+        ],
+        "cupom": {
+          "nome": "DESCONTAO",
+          "valor": "50",
+          "qtd": "10",
+          "expirationDate": "15/09/2023"
+        }
+      },
+      "id": 2
     }
   ],
-  "comments": [
+  "users": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "email": "a@a",
+      "password": "$2a$10$r4SoKbmbf0Al6nn8tMKvhuU5OPnSDMf12URcR5fodfzAKX0B/3d6u",
+      "name": "a",
+      "isAdmin": false,
+      "id": 1
+    },
+    {
+      "email": "b@b",
+      "password": "$2a$10$r4SoKbmbf0Al6nn8tMKvhuU5OPnSDMf12URcR5fodfzAKX0B/3d6u",
+      "name": "b",
+      "isAdmin": true,
+      "id": 2
+    },
+    {
+      "email": "asdas@ad",
+      "password": "$2a$10$eopo0A7o89U0uV6vKwlPTO6jk4y6OsGACpxtkCjlIs7fgLZiHzyVu",
+      "username": "asd",
+      "isAdmin": false,
+      "id": 3
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

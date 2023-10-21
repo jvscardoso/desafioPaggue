@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {Box, Tab, Tabs, TextField, Button, FormControl, InputLabel, Select, MenuItem} from '@mui/material';
-import FormEvento from '../../components/FormEvento';
+import TabEventos from '../../components/TabEventos';
 import { useAuth } from '../../hooks/useAuth';
+import TabCupons from '../../components/TabCupons';
 
 const Profile = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -29,13 +30,15 @@ const Profile = () => {
   };
 
   const {data} = useAuth()
+  console.log(data.user)
 
   return (
     <div>
         <Tabs value={tabIndex} onChange={handleTabChange}>
           <Tab label="Informações pessoais" />
           <Tab label="Configurações da Conta" />
-          {data?.isAdmin? <Tab label="Cadastro de evento" /> : null}
+          {data?.user?.isAdmin ? <Tab label="Evento" /> : null}
+          {data?.user?.isAdmin ? <Tab label="Cupons" /> : null}
         </Tabs>
       {tabIndex === 0 && (
         <Box p={3}>
@@ -89,11 +92,15 @@ const Profile = () => {
           </Button>
         </Box>
       )}
-      {tabIndex === 2 && data?.isAdmin (
-        <FormEvento />
+      {data?.user?.isAdmin && (
+        <>
+          {tabIndex == 2 && <TabEventos />}
+          {tabIndex == 3 && <TabCupons />}
+        </>
       )}
     </div>
   );
 };
 
 export default Profile;
+//tabIndex === 2 &&

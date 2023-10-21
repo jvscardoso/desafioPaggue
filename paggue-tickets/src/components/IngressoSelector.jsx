@@ -8,12 +8,16 @@ import {
   TableRow,
   Paper,
   Button,
+  Box,
 } from "@mui/material";
 
-const IngressoSelector = ({ data, descricao, preco}) => {
+const IngressoSelector = ({ data }) => {
   const [quantidade, setQuantidade] = useState(0);
 
-  const aumentarQuantidade = () => {
+  const aumentarQuantidade = (valueMax) => {
+    if (quantidade === valueMax) {
+      setQuantidade(valueMax)
+    }  
     setQuantidade(quantidade + 1);
   };
 
@@ -24,9 +28,9 @@ const IngressoSelector = ({ data, descricao, preco}) => {
   };
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} >
       <Table>
-        <TableHead>
+        <TableHead >
           <TableRow>
             <TableCell>Data</TableCell>
             <TableCell>Descrição</TableCell>
@@ -35,16 +39,26 @@ const IngressoSelector = ({ data, descricao, preco}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell>{data}</TableCell>
-            <TableCell>{descricao}</TableCell>
-            <TableCell>{preco}</TableCell>
-            <TableCell>
-              <Button onClick={diminuirQuantidade}>-</Button>
-              {quantidade}
-              <Button onClick={aumentarQuantidade}>+</Button>
-            </TableCell>
-          </TableRow>
+          {data.map(item => (
+            <>
+              {item.ingresso.setor.map(s => (
+                <TableRow key={item.id}>
+                  <TableCell>{item.date}</TableCell>
+                  <TableCell>{s.nome}</TableCell>
+                  <TableCell>{s.valorTicket}</TableCell>
+                  <TableCell>
+                    <Box sx={{ backgroundColor: "#D9D9D9", borderRadius: "20px", width: "140px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <Button onClick={diminuirQuantidade}>-</Button>
+                      {quantidade}
+                      <Button onClick={() => aumentarQuantidade(s.ticketDisponivel)}>+</Button>
+                    </Box>
+                  </TableCell>
+                </TableRow>
+              ))
+              }
+            </>
+          ))}
+
         </TableBody>
       </Table>
     </TableContainer>
