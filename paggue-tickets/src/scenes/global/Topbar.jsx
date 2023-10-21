@@ -5,7 +5,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
 const Topbar = () => {
   return (
-    <Box display="flex" justifyContent="right" p={2}>
+    <Box sx={{display:"flex", width: "100%",justifyContent:"flex-end", p:"2"}}>
       {/* botoes */}
       <Box display="flex">
 

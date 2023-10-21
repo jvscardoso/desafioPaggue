@@ -10,7 +10,6 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [isAdmin, setisAdmin] = useState();
 
-
     const handleLogin = () => {
         signUp (username, email, password, isAdmin)
     }

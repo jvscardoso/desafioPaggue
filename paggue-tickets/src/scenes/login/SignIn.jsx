@@ -8,8 +8,8 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        signIn (email, password)
+    const handleLogin = async () => {
+        await signIn (email, password)
     }
 
     return (
@@ -49,7 +49,7 @@ const Login = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <Button variant="contained" onClick={handleLogin} sx={{ backgroundColor: "#5613AA", borderRadius: '10px', }}>
+                        <Button variant="contained" onClick={()=>handleLogin()} sx={{ backgroundColor: "#5613AA", borderRadius: '10px', }}>
                             Entrar
                         </Button>
                     </form>

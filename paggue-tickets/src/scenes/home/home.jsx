@@ -15,7 +15,7 @@ const Home = () => {
       {/* EVENTOS*/}
       <Box sx={{ alignContent: 'center', display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px", marginTop: "20px", marginBottom: "20px" }}>
         {eventos.map(evento => (
-          <Link to="/evento" style={{ textDecoration: 'none' }}>
+          <Link to={`/evento/${evento.id}`} style={{ textDecoration: 'none' }}>
             <Box sx={{ marginLeft: "30px", gridColumn: "span 4", display: "flex", justifyContent: 'space-between', flexDirection: "column", borderRadius: "10px", boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}>
               <Box sx={{ display: "flex", justifyContent: 'space-between', alignItems: "center" }}>
                 <CaixaEvento imageUrl={evento.imageUrl} title={evento.title} address={evento.address} date={evento.date} />

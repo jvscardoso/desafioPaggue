@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="app">
       <main className='content'>
-        <Router />
         <Topbar />
+        <Router />
       </main>
     </div>
   );

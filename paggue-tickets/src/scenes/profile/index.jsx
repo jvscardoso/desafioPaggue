@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Box, Tab, Tabs, TextField, Button, FormControl, InputLabel, Select, MenuItem} from '@mui/material';
 import FormEvento from '../../components/FormEvento';
+import { useAuth } from '../../hooks/useAuth';
 
 const Profile = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -24,16 +25,17 @@ const Profile = () => {
   };
 
   const handleSave = () => {
-    // Implementar a lógica para salvar os dados no backend aqui
     console.log('Dados salvos:', userData);
   };
+
+  const {data} = useAuth()
 
   return (
     <div>
         <Tabs value={tabIndex} onChange={handleTabChange}>
           <Tab label="Informações pessoais" />
           <Tab label="Configurações da Conta" />
-          <Tab label="Cadastro de evento" />
+          {data?.isAdmin? <Tab label="Cadastro de evento" /> : null}
         </Tabs>
       {tabIndex === 0 && (
         <Box p={3}>
@@ -87,7 +89,7 @@ const Profile = () => {
           </Button>
         </Box>
       )}
-      {tabIndex === 2 && (
+      {tabIndex === 2 && data?.isAdmin (
         <FormEvento />
       )}
     </div>
