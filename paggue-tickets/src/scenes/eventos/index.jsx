@@ -3,9 +3,11 @@ import { Container, Grid, Box, Typography, Button } from "@mui/material";
 import EventoInfo from "../../components/EventoInfo";
 import IngressoSelector from "../../components/IngressoSelector";
 import { Link } from "react-router-dom";
-
+import useEvent from "../../hooks/useEvent";
 
 const Show1 = () => {
+  const {eventos} = useEvent()
+
   return (
     <Container maxWidth="md" style={{ marginTop: "50px" }}>
       <Grid container spacing={3}>
@@ -14,7 +16,7 @@ const Show1 = () => {
           <Box width="95vw" padding={2} color={"white"} sx={{ backgroundColor: "#5613AA", display: "flex", justifyContent: "space-between" }}>
             <Typography variant="h4" gutterBottom>Informações do Show</Typography>
             <Box sx={{ justifyContent: "flex-end" }}>
-              <EventoInfo />
+              <EventoInfo date={eventos.date} hora={eventos.horas} address={eventos.address} valorTicket={eventos.valorTicket}/>
             </Box>
           </Box>
         </Grid>

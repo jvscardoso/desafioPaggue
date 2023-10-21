@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Box, Tab, Tabs, TextField, Button, FormControl, InputLabel, Select, MenuItem} from '@mui/material';
+import FormEvento from '../../components/FormEvento';
 
 const Profile = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -32,6 +33,7 @@ const Profile = () => {
         <Tabs value={tabIndex} onChange={handleTabChange}>
           <Tab label="Informações pessoais" />
           <Tab label="Configurações da Conta" />
+          <Tab label="Cadastro de evento" />
         </Tabs>
       {tabIndex === 0 && (
         <Box p={3}>
@@ -84,6 +86,9 @@ const Profile = () => {
             Salvar Configurações
           </Button>
         </Box>
+      )}
+      {tabIndex === 2 && (
+        <FormEvento />
       )}
     </div>
   );

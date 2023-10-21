@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Grid, Box, Typography, Divider, Button } from "@mui/material";
 
-const EventoInfo = () => {
+const EventoInfo = ({date, hora, address, valorTicket}) => {
     return (
         <Container>
             <Grid container sx={{height:"100%", width:"100%", maxHeight:"450px", maxWidth:"650px"}}>
@@ -12,12 +12,12 @@ const EventoInfo = () => {
                             <Grid container flexDirection="row" justifyContent="space-between" >
                                 <Grid item>
                                     <Box>
-                                        <Typography variant="subtitle1">Data: DD/MM/AAAA</Typography>
+                                        <Typography variant="subtitle1">Data: {date}</Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item>
                                     <Box sx={{ justifyContent: "flex-end" }}>
-                                        <Typography variant="subtitle1">Hora</Typography>
+                                        <Typography variant="subtitle1">{hora}</Typography>
                                     </Box>
                                 </Grid>
                             </Grid>
@@ -30,7 +30,7 @@ const EventoInfo = () => {
                                 <Grid item flexDirection="column">
                                     <Box>
                                         <Typography variant="subtitle1">Localização</Typography>
-                                        <Typography variant="subtitle1">Feira de Santana - Bahia</Typography>
+                                        <Typography variant="subtitle1">{address}</Typography>
                                     </Box>
                                 </Grid>
 
@@ -39,7 +39,7 @@ const EventoInfo = () => {
                                 <Grid item flexDirection="column">
                                     <Box>
                                         <Typography variant="subtitle1">A partir de:</Typography>
-                                        <Typography variant="subtitle1">R$100</Typography>
+                                        <Typography variant="subtitle1">{valorTicket}</Typography>
                                     </Box>
                                 </Grid>
                             </Grid>

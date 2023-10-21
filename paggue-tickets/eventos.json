@@ -1,0 +1,64 @@
+{
+  "eventos": [
+    {
+      "title": "teste 1",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCvCm90-sdIJ4ilghJIgVSwXhH91jKVoLG0zexwMZ0&s",
+      "address": "Rua teste",
+      "date": "10/09/2023",
+      "horas": "11:00",
+      "typeEvent": "Comedia",
+      "ingresso": {
+        "ticketDisponivel": 10,
+        "valorTicket": 99,
+        "typeTicket": "Vip",
+        "date": "11/09/2023"
+      },
+      "id": 1
+    },
+    {
+      "title": "teste 2",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCvCm90-sdIJ4ilghJIgVSwXhH91jKVoLG0zexwMZ0&s",
+      "address": "Rua teste",
+      "date": "10/09/2023",
+      "horas": "11:00",
+      "typeEvent": "Comedia",
+      "ingresso": {
+        "ticketDisponivel": 10,
+        "valorTicket": 99,
+        "typeTicket": "Vip",
+        "date": "11/09/2023"
+      },
+      "id": 2
+    },
+    {
+      "title": "teste 3",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCvCm90-sdIJ4ilghJIgVSwXhH91jKVoLG0zexwMZ0&s",
+      "address": "Rua teste",
+      "date": "10/09/2023",
+      "horas": "11:00",
+      "typeEvent": "Comedia",
+      "ingresso": {
+        "ticketDisponivel": 10,
+        "valorTicket": 99,
+        "typeTicket": "Vip",
+        "date": "11/09/2023"
+      },
+      "id": 3
+    },
+    {
+      "title": "teste 4",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCvCm90-sdIJ4ilghJIgVSwXhH91jKVoLG0zexwMZ0&s",
+      "address": "Rua teste",
+      "date": "10/09/2023",
+      "horas": "11:00",
+      "typeEvent": "Comedia",
+      "ingresso": {
+        "ticketDisponivel": 10,
+        "valorTicket": 99,
+        "typeTicket": "Vip",
+        "date": "11/09/2023"
+      },
+      "id": 4
+    }
+  ]
+}

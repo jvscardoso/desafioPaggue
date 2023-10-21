@@ -1,29 +1,36 @@
-import React, { useState } from 'react';
-import {
-  Stepper,
-  Step,
-  StepLabel,
-  Button,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Box,
-} from '@mui/material';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import StepContent from '@mui/material/StepContent';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 
-const steps = ['Informações Pessoais', 'Método de Contato', 'Informações de Pagamento'];
+const steps = [
+  {
+    label: 'Select campaign settings',
+    description: `For each ad campaign that you create, you can control how much
+              you're willing to spend on clicks and conversions, which networks
+              and geographical locations you want your ads to show on, and more.`,
+  },
+  {
+    label: 'Create an ad group',
+    description:
+      'An ad group contains one or more ads which target a shared set of keywords.',
+  },
+  {
+    label: 'Create an ad',
+    description: `Try out different ad text to see what brings in the most customers,
+              and learn how to enhance your ads using features like ad extensions.
+              If you run into any problems with your ads, find out how to tell if
+              they're running and how to resolve approval issues.`,
+  },
+];
 
-const Checkout = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    cpf: '',
-    contato: '',
-    numeroCartao: '',
-    endereco: '',
-  });
+export default function VerticalLinearStepper() {
+  const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -33,122 +40,56 @@ const Checkout = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const isStepInvalid = () => {
-    switch (activeStep) {
-      case 0:
-        return !formData.nome || !formData.email || !formData.cpf;
-      case 1:
-        return !formData.contato;
-      case 2:
-        return !formData.numeroCartao || !formData.endereco;
-      default:
-        return false;
-    }
+  const handleReset = () => {
+    setActiveStep(0);
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-      }}
-    >
-      <div style={{ maxWidth: 400 }}>
-        <Stepper activeStep={activeStep} alternativeLabel orientation="vertical">
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-        <Box p={3} style={{ width: '100%' }}>
-          {activeStep === 0 && (
-            <div>
-              <TextField
-                fullWidth
-                label="Nome"
-                name="nome"
-                value={formData.nome}
-                onChange={handleInputChange}
-                margin="normal"
-              />
-              <TextField
-                fullWidth
-                label="Email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                margin="normal"
-              />
-              <TextField
-                fullWidth
-                label="CPF"
-                name="cpf"
-                value={formData.cpf}
-                onChange={handleInputChange}
-                margin="normal"
-              />
-            </div>
-          )}
-          {activeStep === 1 && (
-            <div>
-              <FormControl fullWidth margin="normal">
-                <InputLabel>Método de Contato</InputLabel>
-                <Select
-                  label="Método de Contato"
-                  name="contato"
-                  value={formData.contato}
-                  onChange={handleInputChange}
-                >
-                  <MenuItem value="EMAIL">Email</MenuItem>
-                  <MenuItem value="SMS">SMS</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-          )}
-          {activeStep === 2 && (
-            <div>
-              <TextField
-                fullWidth
-                label="Número do Cartão"
-                name="numeroCartao"
-                value={formData.numeroCartao}
-                onChange={handleInputChange}
-                margin="normal"
-              />
-              <TextField
-                fullWidth
-                label="Endereço"
-                name="endereco"
-                value={formData.endereco}
-                onChange={handleInputChange}
-                margin="normal"
-              />
-            </div>
-          )}
-        </Box>
-        <div style={{ marginTop: 20 }}>
-          <Button disabled={activeStep === 0} onClick={handleBack} style={{ marginRight: 10 }}>
-            Voltar
+    <Box sx={{ maxWidth: 400 }}>
+      <Stepper activeStep={activeStep} orientation="vertical">
+        {steps.map((step, index) => (
+          <Step key={step.label}>
+            <StepLabel
+              optional={
+                index === 2 ? (
+                  <Typography variant="caption">Last step</Typography>
+                ) : null
+              }
+            >
+              {step.label}
+            </StepLabel>
+            <StepContent>
+              <Typography>{step.description}</Typography>
+              <Box sx={{ mb: 2 }}>
+                <div>
+                  <Button
+                    variant="contained"
+                    onClick={handleNext}
+                    sx={{ mt: 1, mr: 1 }}
+                  >
+                    {index === steps.length - 1 ? 'Finish' : 'Continue'}
+                  </Button>
+                  <Button
+                    disabled={index === 0}
+                    onClick={handleBack}
+                    sx={{ mt: 1, mr: 1 }}
+                  >
+                    Back
+                  </Button>
+                </div>
+              </Box>
+            </StepContent>
+          </Step>
+        ))}
+      </Stepper>
+      {activeStep === steps.length && (
+        <Paper square elevation={0} sx={{ p: 3 }}>
+          <Typography>All steps completed - you&apos;re finished</Typography>
+          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+            Reset
           </Button>
-          <Button variant="contained" color="primary" onClick={handleNext} disabled={isStepInvalid()}>
-            {activeStep === steps.length - 1 ? 'Finalizar' : 'Próximo'}
-          </Button>
-        </div>
-      </div>
-    </div>
+        </Paper>
+      )}
+    </Box>
   );
-};
-
-export default Checkout;
+}
