@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid} from '@mui/material';
 
-const FormCupom = () => {
-    const [cupom, setCupom] = useState({
-        titulo: '',
-        porcentagem: '',
-        dataValidade: '',
+const FormLote = () => {
+    const [lote, setLote] = useState({
+        loteNome: '',
+        loteIngresso: '',
+        loteValidade: '',
     });
 
     const handleChange = (prop) => (event) => {
-        setCupom({ ...cupom, [prop]: event.target.value });
+        setLote({ ...lote, [prop]: event.target.value });
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Lógica para lidar com o envio do formulário
-        console.log('Evento enviado:', cupom);
+        console.log('Evento enviado:', lote);
     };
 
     return (
@@ -24,20 +23,20 @@ const FormCupom = () => {
                 <Grid item xs={12}>
                     <TextField
                         fullWidth
-                        label="CUPOM"
+                        label="Nome do lote"
                         variant="outlined"
-                        value={cupom.titulo}
-                        onChange={handleChange('titulo')}
+                        value={lote.loteNome}
+                        onChange={handleChange('loteNome')}
                     />
                 </Grid>
                 
                 <Grid item xs={12}>
                     <TextField
                         fullWidth
-                        label="Porcentagem"
+                        label="Quantidade de ingressos por lote"
                         variant="outlined"
-                        value={cupom.porcentagem}
-                        onChange={handleChange('porcentagem')}
+                        value={lote.loteIngresso}
+                        onChange={handleChange('loteIngresso')}
                     />
                 </Grid>
 
@@ -47,8 +46,8 @@ const FormCupom = () => {
                         label="Válido até"
                         type="date"
                         variant="outlined"
-                        value={cupom.dataValidade}
-                        onChange={handleChange('dataValidade')}
+                        value={lote.loteValidade}
+                        onChange={handleChange('loteValidade')}
                         InputLabelProps={{
                             shrink: true,
                         }}
@@ -57,7 +56,7 @@ const FormCupom = () => {
 
                 <Grid item xs={12}>
                     <Button variant="contained" color="primary" fullWidth type="submit">
-                        Cadastrar cupom
+                        Novo lote
                     </Button>
                 </Grid>
             </Grid>
@@ -65,4 +64,4 @@ const FormCupom = () => {
     );
 };
 
-export default FormCupom;
+export default FormLote;

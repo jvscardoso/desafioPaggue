@@ -29,7 +29,16 @@ const TabCupons = () => {
       </Box>
 
       <Modal open={modalOpen} onClose={handleCloseModal}>
-        <Box>
+        <Box sx={{
+            position: 'absolute',
+            width: 400,
+            bgcolor: 'background.paper', 
+            boxShadow: 24, 
+            p: 4, 
+            top: '50%',
+            left: '50%', 
+            transform: 'translate(-50%, -50%)', 
+          }}>
           <FormCupom />
         </Box>
       </Modal>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Box,Typography, Button, Modal } from '@mui/material';
-import FormEventos from './FormEventos'
-import TabelaEventos from './TabelaEventos';
 import { useParams } from "react-router-dom";
 import useEvent from '../hooks/useEvent';
+import FormSetores from './FormSetores';
+import TabelaSetores from './TabelaSetores';
 
-const TabEventos = () => {
+const TabSetores = () => {
   const {id} = useParams()
   const { eventos } = useEvent()
   const data = eventos.filter(item => item.id == id)
@@ -21,15 +21,15 @@ const TabEventos = () => {
   return (
     <Box>
       <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography sx={{ fontWeight: "800", fontSize: "40px"}}> Eventos Cadastrados </Typography>
-        <Button variant="contained" onClick={handleOpenModal}>Cadastrar</Button>
+        <Typography sx={{ fontWeight: "800", fontSize: "40px"}}> Lotes Cadastrados </Typography>
+        <Button variant="contained" onClick={handleOpenModal}>Novo lote</Button>
       </Box>
       <Box>
-        <TabelaEventos data={data} />
+        <TabelaSetores data={data} />
       </Box>
 
       <Modal open={modalOpen} onClose={handleCloseModal}>
-      <Box sx={{
+        <Box sx={{
             position: 'absolute',
             width: 400,
             bgcolor: 'background.paper', 
@@ -39,7 +39,7 @@ const TabEventos = () => {
             left: '50%', 
             transform: 'translate(-50%, -50%)', 
           }}>
-          <FormEventos />
+          <FormSetores />
         </Box>
       </Modal>
       
@@ -47,4 +47,4 @@ const TabEventos = () => {
   );
 };
 
-export default TabEventos;
+export default TabSetores;

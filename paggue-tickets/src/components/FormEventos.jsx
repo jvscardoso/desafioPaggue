@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, MenuItem, InputAdornment, Box, Typography } from '@mui/material';
+import { TextField, Button, Grid, MenuItem, InputAdornment, Typography} from '@mui/material';
+
 const tiposDeEvento = ['Concerto', 'Festival', 'Conferência', 'Outro'];
+const tipoIngresso = ['Área VIP', 'Inteira', 'Meia entrada', 'Cortesia']
+
 const FormEventos = () => {
     const [evento, setEvento] = useState({
         titulo: '',
@@ -26,9 +29,8 @@ const FormEventos = () => {
 
 
     return (
-
-
         <form onSubmit={handleSubmit}>
+            <Typography marginBottom={2} variant='h4' fontWeight={600}> Cadastrar novo evento</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <TextField
@@ -116,15 +118,22 @@ const FormEventos = () => {
                 <Grid item xs={6}>
                     <TextField
                         fullWidth
-                        label="Tipo do Ingresso"
+                        label="Tipo de Ingresso"
                         variant="outlined"
+                        select
                         value={evento.tipoIngresso}
                         onChange={handleChange('tipoIngresso')}
-                    />
+                    >
+                        {tipoIngresso.map((tipo) => (
+                            <MenuItem key={tipo} value={tipo}>
+                                {tipo}
+                            </MenuItem>
+                        ))}
+                    </TextField>
                 </Grid>
-                <Grid item xs={12}>
-                    <Button variant="contained" color="primary" fullWidth type="submit">
-                        Enviar
+                <Grid item xs={12} alignItems="center">
+                    <Button variant="contained" color="primary" type="submit">
+                        Cadastrar evento
                     </Button>
                 </Grid>
             </Grid>

@@ -41,18 +41,6 @@ const PageEvento = () => {
             <Box sx={{width:"100%"}}>
               <IngressoSelector data={data}/>
             </Box>
-
-            <Box paddingTop={2} sx={{ justifyContent: "flex-start"}}>
-              <Box sx={{borderRadius:"5px", backgroundColor: "white", padding: "20px", display: "flex", justifyContent: "space-between", flexDirection: "row"}}>
-                <Box justifyItems="center">
-                  <Link to="/checkout">
-                    <Button variant="contained" sx={{ backgroundColor: "#5613AA", borderRadius: '10px', }}>
-                      Adicionar ao carrinho
-                    </Button>
-                  </Link>
-                </Box>
-              </Box>
-            </Box>
           </Box>
         </Grid>
       </Grid>

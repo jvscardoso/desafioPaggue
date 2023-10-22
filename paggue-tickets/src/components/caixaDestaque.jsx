@@ -24,14 +24,14 @@ const styles = {
   textContainer: {
     marginTop: '10px',
     textAlign: 'left',
-    display: 'flex', // Usa flexbox para alinhar os itens à esquerda
-    justifyContent: 'left', // Alinha os itens à esquerda
-    flexDirection: 'column', // Coloca os itens em uma coluna
+    display: 'flex', 
+    justifyContent: 'left', 
+    flexDirection: 'column', 
     alignItems: 'left',
     marginLeft: '10px',
   },
   info: {
-    fontSize: '1rem', // Tamanho das informações
+    fontSize: '1rem',
   },
 }
 
