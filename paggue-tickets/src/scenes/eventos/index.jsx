@@ -8,8 +8,7 @@ import useEvent from "../../hooks/useEvent";
 const PageEvento = () => {
   const {id} = useParams()
   const { eventos } = useEvent()
-  const data = eventos.filter(item => item.id == id)
-  console.log(data)
+  const data = eventos.filter(item => {return item.id === Number(id)})
 
   return (
     <Container style={{ marginTop: "50px", width:"100%" }}>

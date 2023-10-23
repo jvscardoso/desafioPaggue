@@ -15,7 +15,6 @@ const FormSetores = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Evento enviado:', setor);
     };
 
     return (

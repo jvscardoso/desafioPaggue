@@ -22,8 +22,6 @@ const FormEventos = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Lógica para lidar com o envio do formulário
-        console.log('Evento enviado:', evento);
     };
 
 

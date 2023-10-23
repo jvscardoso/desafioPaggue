@@ -4,9 +4,7 @@ import TabEventos from '../../components/TabEventos';
 import { useAuth } from '../../hooks/useAuth';
 import TabCupons from '../../components/TabCupons';
 import AvatarUpload from '../../components/AvatarUploader';
-import TabLotes from '../../components/TabLotes';
 import TabConfigLoja from '../../components/TabConfigLoja';
-import TabSetores from '../../components/TabSetores';
 
 const Profile = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -32,10 +30,7 @@ const Profile = () => {
   const handleSave = () => {
     console.log('Dados salvos:', userData);
   };
-
   const { data } = useAuth()
-  console.log(data.user)
-
   return (
     <div>
       <Tabs value={tabIndex} onChange={handleTabChange}>
@@ -44,8 +39,6 @@ const Profile = () => {
         {data?.user?.isAdmin ? <Tab label="Configurações da loja" /> : null}
         {data?.user?.isAdmin ? <Tab label="Evento" /> : null}
         {data?.user?.isAdmin ? <Tab label="Cupons" /> : null}
-        {data?.user?.isAdmin ? <Tab label="Setores" /> : null}
-        {data?.user?.isAdmin ? <Tab label="Lotes" /> : null}
       </Tabs>
       {tabIndex === 0 && (
         <Box>
@@ -53,7 +46,7 @@ const Profile = () => {
             <Typography sx={{ fontWeight: "800", fontSize: "40px" }}> Dados do Usuário </Typography>
             <Button variant="contained">Editar Dados</Button>
           </Box>
-          <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: "center"}}>
+          <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: "center" }}>
             <Box p={3} backgroundColor="#D9D9D9">
               <TextField
                 fullWidth
@@ -87,7 +80,7 @@ const Profile = () => {
                 Salvar Informações
               </Button>
             </Box>
-            <Box sx={{backgroundColor: "purple",display: 'flex',flexDirection: 'column',alignItems: 'left',height: "400px",width: "300px", }}>
+            <Box sx={{ backgroundColor: "purple", display: 'flex', flexDirection: 'column', alignItems: 'left', height: "400px", width: "300px", }}>
               <AvatarUpload />
             </Box>
           </Box>
@@ -114,11 +107,9 @@ const Profile = () => {
       )}
       {data?.user?.isAdmin && (
         <>
+          {tabIndex == 2 && <TabConfigLoja />}
           {tabIndex == 3 && <TabEventos />}
           {tabIndex == 4 && <TabCupons />}
-          {tabIndex == 5 && <TabSetores />}
-          {tabIndex == 6 && <TabLotes />}
-          {tabIndex == 2 && <TabConfigLoja />}
         </>
       )}
     </div>
@@ -126,4 +117,3 @@ const Profile = () => {
 };
 
 export default Profile;
-//tabIndex === 2 &&

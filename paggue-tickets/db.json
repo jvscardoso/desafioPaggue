@@ -12,23 +12,37 @@
         "setor": [
           {
             "nome": "VIP",
-            "capacidade": "100",
-            "ticketDisponivel": "10",
-            "valorTicket": "99"
+            "capacidade": 200,
+            "ticketDisponivel": 10,
+            "valorTicket": 999
           },
           {
             "nome": "Inteira",
-            "capacidade": "1000",
-            "ticketDisponivel": "10",
-            "valorTicket": "50"
+            "capacidade": 3000,
+            "ticketDisponivel": 20,
+            "valorTicket": 500
           }
         ],
-        "cupom": {
-          "nome": "DESCONTAO",
-          "valor": "50",
-          "qtd": "10",
-          "expirationDate": "15/09/2023"
-        }
+        "cupom": [
+          {
+            "nome": "DESCONTAO",
+            "valor": 50,
+            "qtd": 10,
+            "expirationDate": "15/09/2023"
+          }
+        ],
+        "lote": [
+          {
+            "id": 1,
+            "quantidade": 600,
+            "expirationDate": "15/09/2023"
+          },
+          {
+            "id": 2,
+            "quantidade": 600,
+            "expirationDate": "30/09/2023"
+          }
+        ]
       },
       "id": 1
     },
@@ -44,23 +58,37 @@
         "setor": [
           {
             "nome": "VIP",
-            "capacidade": "100",
-            "ticketDisponivel": "100",
-            "valorTicket": "99"
+            "capacidade": 500,
+            "ticketDisponivel": 200,
+            "valorTicket": 99
           },
           {
             "nome": "Inteira",
-            "capacidade": "1000",
-            "ticketDisponivel": "1000",
-            "valorTicket": "50"
+            "capacidade": 2000,
+            "ticketDisponivel": 1000,
+            "valorTicket": 50
           }
         ],
-        "cupom": {
-          "nome": "DESCONTAO",
-          "valor": "50",
-          "qtd": "10",
-          "expirationDate": "15/09/2023"
-        }
+        "cupom": [
+          {
+            "nome": "DESCONTAO",
+            "valor": 50,
+            "qtd": 10,
+            "expirationDate": "15/09/2023"
+          }
+        ],
+        "lote": [
+          {
+            "id": 1,
+            "quantidade": 600,
+            "expirationDate": "15/09/2023"
+          },
+          {
+            "id": 2,
+            "quantidade": 600,
+            "expirationDate": "30/09/2023"
+          }
+        ]
       },
       "id": 2
     }
@@ -71,6 +99,7 @@
       "password": "$2a$10$r4SoKbmbf0Al6nn8tMKvhuU5OPnSDMf12URcR5fodfzAKX0B/3d6u",
       "name": "a",
       "isAdmin": false,
+      "telefone": "(00) 12345-6789",
       "id": 1
     },
     {
@@ -78,12 +107,14 @@
       "password": "$2a$10$r4SoKbmbf0Al6nn8tMKvhuU5OPnSDMf12URcR5fodfzAKX0B/3d6u",
       "name": "b",
       "isAdmin": true,
+      "telefone": "(00) 12345-6789",
       "id": 2
     },
     {
       "email": "asdas@ad",
       "password": "$2a$10$eopo0A7o89U0uV6vKwlPTO6jk4y6OsGACpxtkCjlIs7fgLZiHzyVu",
       "username": "asd",
+      "telefone": "(00) 12345-6789",
       "isAdmin": false,
       "id": 3
     }

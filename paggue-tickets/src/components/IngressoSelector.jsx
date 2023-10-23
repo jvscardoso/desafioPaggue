@@ -1,18 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Button,
-  Box,
-  Typography,
-} from "@mui/material";
+import {Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Paper,Button,Box,Typography} from "@mui/material";
 import { Link } from "react-router-dom";
-import { ContextValorTotal } from "../context/contextValorTotal";
+import { Context } from "../context/context";
 
 const IngressoSelector = ({ data }) => {
   const [quantidades, setQuantidades] = useState({});
@@ -46,7 +35,7 @@ const IngressoSelector = ({ data }) => {
     }
   };
 
-  const { ValorTotalState, setValorTotalState } = useContext(ContextValorTotal)
+  const {setValorTotalState } = useContext(Context)
 
   return (
     <Box>

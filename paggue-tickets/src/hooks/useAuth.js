@@ -45,10 +45,8 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if(data?.accessToken){
-      console.log("aqui")
       navigate("/")
     }else{
-      console.log("nao foi")
     }
   }, [data])
 

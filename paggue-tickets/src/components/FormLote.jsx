@@ -14,7 +14,6 @@ const FormLote = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Evento enviado:', lote);
     };
 
     return (

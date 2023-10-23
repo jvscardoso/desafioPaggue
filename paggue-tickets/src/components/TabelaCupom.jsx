@@ -1,5 +1,7 @@
 import React from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton } from '@mui/material';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 const TabelaCupom = ({ data, onEditar, onExcluir }) => {
     return (
@@ -15,27 +17,23 @@ const TabelaCupom = ({ data, onEditar, onExcluir }) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.map((item) => (
-                        <>
-                            {item.ingresso.cupom.map(s => (
-                                <TableRow key={item.id}>
-                                    <TableCell>{s.nome}</TableCell>
-                                    <TableCell>{s.valor}</TableCell>
-                                    <TableCell>{s.qtd}</TableCell>
-                                    <TableCell>{s.expirationDate}</TableCell>
-                                    <TableCell>
-                                        <Button variant="contained" color="primary">
-                                            Editar
-                                        </Button>
-                                        <Button variant="contained" color="secondary">
-                                            Excluir
-                                        </Button>
-                                    </TableCell>
-                                </TableRow>
-                            ))
-                            }
-                        </>
-                    ))}
+                    {data?.map((item) => {
+                        return <TableRow key={item.id}>
+                            <TableCell>{item.ingresso.cupom.nome}</TableCell>
+                            <TableCell>{item.ingresso.cupom.valor}</TableCell>
+                            <TableCell>{item.ingresso.cupom.expirationDate}</TableCell>
+                            <TableCell>{item.ingresso.cupom.qtd}</TableCell>
+                            <TableCell>
+                                <IconButton color="primary">
+                                    <EditOutlinedIcon />
+                                </IconButton>
+                                <IconButton color="secondary">
+                                    <DeleteOutlineOutlinedIcon />
+                                </IconButton>
+                            </TableCell>
+                        </TableRow>
+                    }
+                    )}
                 </TableBody>
             </Table>
         </TableContainer>
