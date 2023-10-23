@@ -6,7 +6,7 @@
       "address": "Feira de Santana - Bahia",
       "date": "23/10/2023",
       "horas": "19:00",
-      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proid ent, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "descricao": "Entre na festa do ano na nossa tão esperada festa de inauguração! Este evento extravagante e cheio de estilo marca o início de uma nova era, onde a elegância encontra a modernidade. O local foi transformado em um oásis de luxo, com decorações deslumbrantes que capturam a imaginação. ",
       "typeEvent": "Show",
       "ingresso": {
         "setor": [
@@ -52,7 +52,7 @@
       "address": "Rio de Janeiro | Brasil",
       "date": "23/10/2023",
       "horas": "22:00",
-      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proid ent, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "descricao": "O Show do Século com Alok celebra o centenário do Copacabana Palace e o aniversário do artista. Um grande espetáculo direto da praia de Copacabana, no Rio.",
       "typeEvent": "Show",
       "ingresso": {
         "setor": [
@@ -93,12 +93,12 @@
       "id": 2
     },
     {
-      "title": "Natan e Zé Vaqueiro",
+      "title": "Nathan e Zé Vaqueiro",
       "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFT5D5a-Ukro4uO5fCbVtt8oJpSLHMb-lOzOYpQp3HfvunPxmJKYLtNl84TJsxBQ5Bd8qsO_ADWHQrVQV3T7XWrJI0gO3Mp4vA_OtBMIyUO2-RLZfSUIOrkiGdti9aV8dVjZrLzFlp2pIihHlaC4ZhVCCMfCV__lwiquED4JX1h56zWP3LrPWLANyR/s1599/Nattan%20e%20Z%C3%A9%20Vaqueiro%20em%20Imperatriz.jpg",
       "address": "Imperatriz | Maranhão",
       "date": "18/08/2023",
       "horas": "22:00",
-      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proid ent, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "descricao": "Prepare-se para uma noite inesquecível de música autêntica e emoção pura com o espetáculo de Nathazinho e Zé Vaqueiro. Neste show incrível, esses dois talentosos artistas se unem no palco para oferecer uma experiência musical única, combinando o carisma cativante de Nathazinho com a autenticidade apaixonante de Zé Vaqueiro. ",
       "typeEvent": "Show",
       "ingresso": {
         "setor": [
@@ -150,7 +150,7 @@
       "address": "Global",
       "date": "2023",
       "horas": "22:00",
-      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proid ent, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "descricao": "Dez shows. Esse era o plano inicial. Mas acabaram sendo 22 apresentações. Ao todo, 600.000 pessoas passaram por um portal e viveram a experiência Titãs Encontro, reconstituindo memórias e, ao mesmo tempo, construindo novas lembranças. E, assim que soaram os últimos acordes da turnê que reúne Arnaldo Antunes, Branco Mello, Charles Gavin, Nando Reis, Paulo Miklos, Sérgio Britto e Tony Bellotto, o público demonstrou que não estava preparado para se despedir desse portal mágico. E nem os artistas!",
       "typeEvent": "Show",
       "ingresso": {
         "setor": [

@@ -29,7 +29,7 @@ const TabCupons = () => {
       <Modal open={modalOpen} onClose={handleCloseModal}>
         <Box sx={{
             position: 'absolute',
-            width: 400,
+            width: "500px",
             bgcolor: 'background.paper', 
             boxShadow: 24, 
             p: 4, 

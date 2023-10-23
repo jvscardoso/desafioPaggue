@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, MenuItem, InputAdornment, Typography} from '@mui/material';
+import { TextField, Button, Grid, MenuItem, InputAdornment, Typography, Snackbar } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 
 const tiposDeEvento = ['Concerto', 'Festival', 'Conferência', 'Outro'];
-const tipoIngresso = ['Área VIP', 'Inteira', 'Meia entrada', 'Cortesia']
+const tipoIngresso = ['Área VIP', 'Inteira', 'Meia entrada', 'Cortesia'];
 
 const FormEventos = () => {
     const [evento, setEvento] = useState({
@@ -16,21 +17,39 @@ const FormEventos = () => {
         tipoIngresso: ''
     });
 
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+
+    const handleSnackbarClose = () => {
+        setSnackbarOpen(false);
+    };
+
+    const isValid = () => {
+        return evento.titulo && evento.imagem && evento.data && evento.hora && evento.tipoEvento && evento.ingressosDisponiveis && evento.valorIngresso && evento.tipoIngresso;
+    };
+
     const handleChange = (prop) => (event) => {
         setEvento({ ...evento, [prop]: event.target.value });
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (isValid()) {
+            setSnackbarSeverity('success');
+            setSnackbarMessage('Evento cadastrado com sucesso!');
+        } else {
+            setSnackbarSeverity('error');
+            setSnackbarMessage('Todos os campos são obrigatórios.');
+        }
+        setSnackbarOpen(true);
     };
-
-
 
     return (
         <form onSubmit={handleSubmit}>
-            <Typography marginBottom={2} variant='h4' fontWeight={600}> Cadastrar novo evento</Typography>
+            <Typography sx={{ fontWeight: "800", fontSize: "40px" }}> Cadastrar novo evento </Typography>
             <Grid container spacing={2}>
-                <Grid item xs={12}>
+            <Grid item xs={12}>
                     <TextField
                         fullWidth
                         label="Título"
@@ -129,14 +148,19 @@ const FormEventos = () => {
                         ))}
                     </TextField>
                 </Grid>
-                <Grid item xs={12} alignItems="center">
-                    <Button variant="contained" type="submit" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
-                        Cadastrar evento
-                    </Button>
-                </Grid>
             </Grid>
+            <Grid item xs={12} alignItems="center">
+                <Button variant="contained" type="submit" sx={{marginTop:"10px", backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
+                    Cadastrar evento
+                </Button>
+            </Grid>
+            <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+                <MuiAlert elevation={6} variant="filled" onClose={handleSnackbarClose} severity={snackbarSeverity}>
+                    {snackbarMessage}
+                </MuiAlert>
+            </Snackbar>
         </form>
-    )
-}
+    );
+};
 
 export default FormEventos;

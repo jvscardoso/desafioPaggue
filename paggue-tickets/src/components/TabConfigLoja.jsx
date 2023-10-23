@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { TextField, Select, MenuItem, FormControl, InputLabel, Button, Box, Typography } from '@mui/material';
+import { TextField, Select, MenuItem, FormControl, InputLabel, Button, Box, Typography, Snackbar } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 import { HexColorPicker } from "react-colorful";
 
 const TabConfigLoja = () => {
@@ -15,23 +16,43 @@ const TabConfigLoja = () => {
   });
 
   const [color, setColor] = useState("#aabbcc");
+  const [editMode, setEditMode] = useState(false);
+
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
+
+  const isValid = () => {
+    return formData.cnpj && formData.razaoSocial && formData.nomeFantasia && formData.email && formData.senha && formData.quantidadeMinimaDesconto && formData.tipoDesconto && formData.coresRGB;
+  };
 
   const handleInputChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
   };
 
-  const [editMode, setEditMode] = useState(false);
-
   const handleSave = () => {
-    console.log('Dados salvos:', formData);
+    if (isValid()) {
+      // Lógica para lidar com o envio do formulário em caso de sucesso
+      setSnackbarSeverity('success');
+      setSnackbarMessage('Informações salvas com sucesso!');
+    } else {
+      // Lógica para lidar com o envio do formulário em caso de erro
+      setSnackbarSeverity('error');
+      setSnackbarMessage('Por favor, preencha todos os campos obrigatórios.');
+    }
+    setSnackbarOpen(true);
     setEditMode(false);
   };
 
   return (
     <>
-      <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom:'10px' }}>
+      <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
         <Typography sx={{ fontWeight: '800', fontSize: '40px' }}> Dados da empresa </Typography>
-        {!editMode && <Button variant="contained" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}} onClick={() => setEditMode(true)}>Editar Dados</Button>}
+        {!editMode && <Button variant="contained" sx={{ backgroundColor: "#5613AA", fontWeight: "bold", '&:hover': { backgroundColor: "#9d63e6" } }} onClick={() => setEditMode(true)}>Editar Dados</Button>}
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'stretch' }}>
         <Box p={3} backgroundColor="#F2F2F2" sx={{ width: '100%', maxWidth: '1000px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -104,16 +125,21 @@ const TabConfigLoja = () => {
             </Select>
           </FormControl>
           {editMode && (
-
-            <Button variant="contained" color="primary" onClick={handleSave} style={{ marginTop: 20 }} sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
+            <Button variant="contained" color="primary" onClick={handleSave} style={{ marginTop: 20 }} sx={{ backgroundColor: "#5613AA", fontWeight: "bold", '&:hover': { backgroundColor: "#9d63e6" } }}>
               Salvar Informações
             </Button>
           )}
         </Box>
-        <Box sx={{ backgroundColor: '#5613AA', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100%', width: '300px', }}>
+        <Box sx={{ backgroundColor: '#5613AA', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100%', width: '300px' }}>
           {<HexColorPicker color={color} onChange={setColor} />}
         </Box>
       </Box>
+
+      <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+        <MuiAlert elevation={6} variant="filled" onClose={handleSnackbarClose} severity={snackbarSeverity}>
+          {snackbarMessage}
+        </MuiAlert>
+      </Snackbar>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid} from '@mui/material';
+import { TextField, Button, Grid, Snackbar } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 
 const FormLote = () => {
     const [lote, setLote] = useState({
@@ -8,12 +9,28 @@ const FormLote = () => {
         loteValidade: '',
     });
 
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+
     const handleChange = (prop) => (event) => {
         setLote({ ...lote, [prop]: event.target.value });
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (lote.loteNome && lote.loteIngresso && lote.loteValidade) {
+            setSnackbarSeverity('success');
+            setSnackbarMessage('Lote criado com sucesso!');
+        } else {
+            setSnackbarSeverity('error');
+            setSnackbarMessage('Todos os campos são obrigatórios.');
+        }
+        setSnackbarOpen(true);
+    };
+
+    const handleCloseSnackbar = () => {
+        setSnackbarOpen(false);
     };
 
     return (
@@ -59,6 +76,13 @@ const FormLote = () => {
                     </Button>
                 </Grid>
             </Grid>
+
+            {/* Snackbar para mostrar mensagens de sucesso ou erro */}
+            <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+                <MuiAlert elevation={6} variant="filled" onClose={handleCloseSnackbar} severity={snackbarSeverity}>
+                    {snackbarMessage}
+                </MuiAlert>
+            </Snackbar>
         </form>
     );
 };

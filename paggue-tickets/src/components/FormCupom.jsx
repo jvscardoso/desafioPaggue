@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid} from '@mui/material';
+import { TextField, Button, Grid, Snackbar, Typography } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 
 const FormCupom = () => {
     const [cupom, setCupom] = useState({
@@ -8,18 +9,39 @@ const FormCupom = () => {
         dataValidade: '',
     });
 
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+
+    const handleSnackbarClose = () => {
+        setSnackbarOpen(false);
+    };
+
+    const isValid = () => {
+        return cupom.titulo && cupom.porcentagem && cupom.dataValidade;
+    };
+
     const handleChange = (prop) => (event) => {
         setCupom({ ...cupom, [prop]: event.target.value });
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Lógica para lidar com o envio do formulário
-        console.log('Evento enviado:', cupom);
+        if (isValid()) {
+            // Lógica para lidar com o envio do formulário em caso de sucesso
+            setSnackbarSeverity('success');
+            setSnackbarMessage('Cupom cadastrado com sucesso!');
+        } else {
+            // Lógica para lidar com o envio do formulário em caso de erro
+            setSnackbarSeverity('error');
+            setSnackbarMessage('Por favor, preencha todos os campos obrigatórios.');
+        }
+        setSnackbarOpen(true);
     };
 
     return (
         <form onSubmit={handleSubmit}>
+            <Typography sx={{ fontWeight: "800", fontSize: "40px" }}> Cadastrar novo cupom </Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <TextField
@@ -61,6 +83,11 @@ const FormCupom = () => {
                     </Button>
                 </Grid>
             </Grid>
+            <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+                <MuiAlert elevation={6} variant="filled" onClose={handleSnackbarClose} severity={snackbarSeverity}>
+                    {snackbarMessage}
+                </MuiAlert>
+            </Snackbar>
         </form>
     );
 };

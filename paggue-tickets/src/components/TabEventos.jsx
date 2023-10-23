@@ -29,7 +29,7 @@ const TabEventos = () => {
       <Modal open={modalOpen} onClose={handleCloseModal}>
         <Box sx={{
           position: 'absolute',
-          width: 400,
+          width: "1000px",
           bgcolor: 'background.paper',
           boxShadow: 24,
           p: 4,

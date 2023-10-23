@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid} from '@mui/material';
+import { TextField, Button, Grid, Snackbar } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 
 const FormSetores = () => {
     const [setor, setSetor] = useState({
@@ -9,12 +10,38 @@ const FormSetores = () => {
         setorTicketValor: '',
     });
 
+    const [snackbar, setSnackbar] = useState({
+        open: false,
+        message: '',
+        severity: 'success',
+    });
+
+    const handleCloseSnackbar = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setSnackbar({ ...snackbar, open: false });
+    };
+
     const handleChange = (prop) => (event) => {
         setSetor({ ...setor, [prop]: event.target.value });
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        // Validação dos campos
+        if (setor.setorNome && setor.setorCapacidade && setor.setorTicketDisponivel && setor.setorTicketValor) {
+            setSnackbar({ open: true, message: 'Setor cadastrado com sucesso sucesso!', severity: 'success' });
+            setSetor({
+                setorNome: '',
+                setorCapacidade: '',
+                setorTicketDisponivel: '',
+                setorTicketValor: '',
+            });
+        } else {
+            setSnackbar({ open: true, message: 'Todos os campos são obrigatórios!', severity: 'error' });
+        }
     };
 
     return (
@@ -26,7 +53,7 @@ const FormSetores = () => {
                         label="Nome do setor"
                         variant="outlined"
                         value={setor.setorNome}
-                        onChange={handleChange('loteNome')}
+                        onChange={handleChange('setorNome')}
                     />
                 </Grid>
                 
@@ -36,7 +63,7 @@ const FormSetores = () => {
                         label="Capacidade do setor"
                         variant="outlined"
                         value={setor.setorCapacidade}
-                        onChange={handleChange('loteIngresso')}
+                        onChange={handleChange('setorCapacidade')}
                     />
                 </Grid>
 
@@ -46,7 +73,7 @@ const FormSetores = () => {
                         label="Quantidade de ingressos por setor"
                         variant="outlined"
                         value={setor.setorTicketDisponivel}
-                        onChange={handleChange('loteIngresso')}
+                        onChange={handleChange('setorTicketDisponivel')}
                     />
                 </Grid>
 
@@ -56,16 +83,22 @@ const FormSetores = () => {
                         label="Valor do ingresso"
                         variant="outlined"
                         value={setor.setorTicketValor}
-                        onChange={handleChange('loteIngresso')}
+                        onChange={handleChange('setorTicketValor')}
                     />
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Button variant="contained" color="primary" type="submit" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
-                        Novo lote
+                    <Button variant="contained" color="primary" type="submit" sx={{ backgroundColor: "#5613AA", fontWeight: "bold", '&:hover': { backgroundColor: "#9d63e6" } }}>
+                        Cadastrar setor
                     </Button>
                 </Grid>
             </Grid>
+
+            <Snackbar open={snackbar.open} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+                <MuiAlert elevation={6} variant="filled" onClose={handleCloseSnackbar} severity={snackbar.severity}>
+                    {snackbar.message}
+                </MuiAlert>
+            </Snackbar>
         </form>
     );
 };
