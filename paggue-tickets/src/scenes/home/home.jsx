@@ -9,7 +9,7 @@ const Home = () => {
   const { eventos } = useEvent()
   
   return (
-    <Box>
+    <>
       <Typography sx={{ fontWeight: "800", fontSize: "40px"}}> PRINCIPAIS EVENTOS DO MÊS </Typography>
       {/* EVENTOS*/}
       <Box sx={{ alignContent: 'center', display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "20px", marginBottom: "50px" }}>
@@ -42,10 +42,7 @@ const Home = () => {
           </Link>
         ))}
       </Box>
-
-
-    </Box>
-
+    </>
   )
 }
 

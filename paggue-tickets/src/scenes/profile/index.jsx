@@ -41,13 +41,13 @@ const Profile = () => {
         {data?.user?.isAdmin ? <Tab label="Cupons" /> : null}
       </Tabs>
       {tabIndex === 0 && (
-        <Box>
+        <>
           <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography sx={{ fontWeight: "800", fontSize: "40px" }}> Dados do Usuário </Typography>
             <Button variant="contained">Editar Dados</Button>
           </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: "center" }}>
-            <Box p={3} backgroundColor="#D9D9D9">
+          <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: "stretch" }}>
+            <Box p={3}>
               <TextField
                 fullWidth
                 label="Nome"
@@ -80,11 +80,11 @@ const Profile = () => {
                 Salvar Informações
               </Button>
             </Box>
-            <Box sx={{ backgroundColor: "purple", display: 'flex', flexDirection: 'column', alignItems: 'left', height: "400px", width: "300px", }}>
+            <Box sx={{ backgroundColor: "#5613AA", display: 'flex', alignItems: 'center', justifyContent: "center", minHeight: "100%", width: "300px" }}>
               <AvatarUpload />
             </Box>
           </Box>
-        </Box>
+        </>
       )}
       {tabIndex === 1 && (
         <Box>

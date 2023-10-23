@@ -3,7 +3,7 @@ import { Typography, Grid } from '@mui/material';
 
 const calculateTimeLeft = () => {
   let year = new Date().getFullYear();
-  let targetDate = new Date(year, 11, 31); // Defina sua data de destino aqui (ano, mês-1, dia)
+  let targetDate = new Date(year, 11, 31);
   let currentTime = new Date();
   let difference = targetDate - currentTime;
 

@@ -38,7 +38,7 @@ const IngressoSelector = ({ data }) => {
   const {setValorTotalState } = useContext(Context)
 
   return (
-    <Box>
+    <>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -93,7 +93,7 @@ const IngressoSelector = ({ data }) => {
           </Link>
         </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
 
 export default function PersonalInfo(props) {
   const { step } = props;
@@ -20,7 +19,7 @@ export default function PersonalInfo(props) {
   };
 
   return (
-    <Box>
+    <>
       {step === 1 && (
         <form>
           <TextField
@@ -52,6 +51,6 @@ export default function PersonalInfo(props) {
           />
         </form>
       )}
-    </Box>
+    </>
   );
 }

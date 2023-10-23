@@ -33,7 +33,7 @@ export default function FormularioPagamento() {
   };
 
   return (
-    <Box>
+    <>
       <FormControl fullWidth sx={{ marginBottom: 2 }}>
         <InputLabel>Método de Pagamento</InputLabel>
         <Select
@@ -75,6 +75,6 @@ export default function FormularioPagamento() {
           {qrCodeData && <QRCode value={qrCodeData} />}
         </Box>
       )}
-    </Box>
+    </>
   );
 }

@@ -8,12 +8,12 @@ const EventoInfo = (props) => {
             {props.data?.map(item => (
                 <Grid key={item.id} container sx={{ height: "100%", width: "100%", maxHeight: "450px", maxWidth: "650px" }}>
                     <Grid item xs={12}>
-                        <Box color={"black"} padding="20px" sx={{backgroundColor: "white", borderRadius: "10px", boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}>
+                        <Box color={"black"} padding="20px" sx={{ backgroundColor: "white", borderRadius: "10px", boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}>
                             <Typography variant="h6" fontWeight="900">Garanta já o seu ingresso</Typography>
                             <Box>
                                 <Grid container flexDirection="row" justifyContent="space-between" >
                                     <Grid item>
-                                        <Box display="flex" flexDirection="row" alignItems="center"> 
+                                        <Box display="flex" flexDirection="row" alignItems="center">
                                             <Typography variant="subtitle1" fontWeight="800">Data:</Typography>
                                             <Typography variant="subtitle1">{item.date}</Typography>
                                         </Box>
@@ -51,7 +51,7 @@ const EventoInfo = (props) => {
                                     <Grid item flexDirection="column">
                                         <Box>
                                             <Typography variant="subtitle1" fontWeight="800">A partir de:</Typography>
-                                            <Typography variant="subtitle2"color={"#5613AA"} fontWeight="600">R$ {item.ingresso.setor[0].valorTicket}</Typography>
+                                            <Typography variant="subtitle2" color={"#5613AA"} fontWeight="600">R$ {item.ingresso.setor[0].valorTicket}</Typography>
                                         </Box>
                                     </Grid>
                                 </Grid>

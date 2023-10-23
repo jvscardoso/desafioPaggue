@@ -39,7 +39,7 @@ export default function VerticalLinearStepper() {
   return (
     <Grid container>
       <Grid item>
-        <Box>
+        B
           <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((step, index) => (
               <Step key={step.label}>
@@ -78,7 +78,6 @@ export default function VerticalLinearStepper() {
               </Link>
             </Paper>
           )}
-        </Box>
       </Grid>
       <Box>
             A

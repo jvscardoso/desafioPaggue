@@ -17,7 +17,7 @@ const TabEventos = () => {
   };
 
   return (
-    <Box>
+    <>
       <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography sx={{ fontWeight: "800", fontSize: "40px" }}> Eventos Cadastrados </Typography>
         <Button variant="contained" onClick={handleOpenModal}>Cadastrar</Button>
@@ -40,8 +40,7 @@ const TabEventos = () => {
           <FormEventos />
         </Box>
       </Modal>
-
-    </Box>
+    </>
   );
 };
 
