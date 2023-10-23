@@ -8,7 +8,6 @@ const Topbar = () => {
     <Box sx={{display:"flex", width: "100%",justifyContent:"flex-end", p:"2"}}>
       {/* botoes */}
       <Box display="flex">
-
         <Link to="/">
           <IconButton>
             <HomeOutlinedIcon />

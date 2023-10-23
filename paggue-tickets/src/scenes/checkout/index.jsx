@@ -4,6 +4,7 @@ import FormularioEnvio from '../../components/FormEnvio';
 import PersonalInfo from '../../components/FormPersonal_info';
 import { Typography, Paper, Button, StepContent, StepLabel, Step, Stepper, Box, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { ContextValorTotal } from '../../context/contextValorTotal';
 
 const steps = [
   {
@@ -20,6 +21,7 @@ const steps = [
   },
 ];
 
+
 export default function VerticalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -34,6 +36,9 @@ export default function VerticalLinearStepper() {
   const handleReset = () => {
     setActiveStep(0);
   };
+
+  const { ValorTotalState, setValorTotalState } = React.useContext(ContextValorTotal)
+  React.useEffect(()=>{console.log(ValorTotalState)}, [])
 
   return (
     <Grid>
