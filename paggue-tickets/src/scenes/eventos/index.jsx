@@ -16,7 +16,7 @@ const PageEvento = () => {
         {/*INFORMAÇÕES*/}
         <Grid item width="100%">
           <Box width="100%" padding={2} color={"white"} sx={{ backgroundColor: "#5613AA", display: "flex", justifyContent: "space-between", boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}>
-            <Typography variant="h4" gutterBottom fontWeight="900">Informações do Show</Typography>
+            <Typography variant="h4" gutterBottom fontWeight="900">{data[0]?.title}</Typography>
             <Box sx={{justifyContent: "flex-end"}}>
               <EventoInfo data={data}/>
             </Box>
@@ -26,7 +26,7 @@ const PageEvento = () => {
         {/*DESCRIÇÃO*/}
         <Grid item width="100%">
           <Box width="100%" padding={2} color={"white"} sx={{backgroundColor: "#5613AA", display: "flex", justifyContent: "center", flexDirection: "column", boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}>
-              <Typography variant="h4" gutterBottom fontWeight="900">Descrição do Show</Typography>
+              <Typography variant="h4" gutterBottom fontWeight="900">Descrição</Typography>
             <Box padding={2} sx={{ backgroundColor: "white"}}>
               <Typography variant="body1" color="black">{data[0]?.descricao}</Typography>
             </Box>
