@@ -49,7 +49,7 @@ const Login = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <Button variant="contained" onClick={()=>handleLogin()} sx={{ backgroundColor: "#5613AA", borderRadius: '10px', }}>
+                        <Button variant="contained" onClick={()=>handleLogin()} sx={{borderRadius: "10px", backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
                             Entrar
                         </Button>
                     </form>
@@ -59,7 +59,7 @@ const Login = () => {
                     <Typography pl={2} align='center' sx={{ fontSize: "30px", fontWeight: "bold", color: "white" }}>Paggue Tickets</Typography>
                     <Typography pl={2} pb={2} align='center' sx={{ fontSize: "10px", color: "white" }}>Clique no botão abaixo e crie já sua conta e não perca nenhum evento!</Typography>
                     <Link to="/signUp" style={{ textDecoration: 'none' }}>
-                        <Button variant="contained" sx={{ backgroundColor: "white", borderRadius: '10px', }}>
+                        <Button variant="contained" sx={{ backgroundColor: "white", borderRadius: '10px', '&:hover': {backgroundColor: "#9d63e6"}}}>
                             <Typography sx={{ color: "#5613AA", fontWeight: "bold" }}>Criar conta</Typography>
                         </Button>
                     </Link>

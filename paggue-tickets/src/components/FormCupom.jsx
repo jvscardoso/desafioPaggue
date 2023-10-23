@@ -24,7 +24,7 @@ const FormCupom = () => {
                 <Grid item xs={12}>
                     <TextField
                         fullWidth
-                        label="CUPOM"
+                        label="Cupom"
                         variant="outlined"
                         value={cupom.titulo}
                         onChange={handleChange('titulo')}
@@ -56,7 +56,7 @@ const FormCupom = () => {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Button variant="contained" color="primary" fullWidth type="submit">
+                    <Button variant="contained" color="primary" type="submit" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
                         Cadastrar cupom
                     </Button>
                 </Grid>

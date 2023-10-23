@@ -130,7 +130,7 @@ const FormEventos = () => {
                     </TextField>
                 </Grid>
                 <Grid item xs={12} alignItems="center">
-                    <Button variant="contained" color="primary" type="submit">
+                    <Button variant="contained" type="submit" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
                         Cadastrar evento
                     </Button>
                 </Grid>

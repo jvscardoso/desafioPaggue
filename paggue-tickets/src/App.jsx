@@ -5,14 +5,10 @@ import Topbar from "./scenes/global/Topbar";
 function App() {
 
   return (
-    <div className="app">
-      <ContextProvider>
-        <main className='content' style={{ width: "100%" }}>
-          <Topbar />
-          <Router />
-        </main>
-      </ContextProvider>
-    </div>
+    <ContextProvider>
+      <Topbar />
+      <Router />
+    </ContextProvider>
   );
 }
 

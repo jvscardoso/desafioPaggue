@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 
 const SignUp = () => {
-    const {signUp} = useAuth()
+    const { signUp } = useAuth()
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isAdmin, setisAdmin] = useState();
 
     const handleLogin = () => {
-        signUp (username, email, password, isAdmin)
+        signUp(username, email, password, isAdmin)
     }
 
 
@@ -61,13 +61,17 @@ const SignUp = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <Select
+                            label="Tipo de usuário"
+                            variant="outlined"
+                            margin="dense"
+                            fullWidth
                             onChange={e => setisAdmin(e.target.value)}
                         >
                             <MenuItem value={false}>Usuário</MenuItem>
                             <MenuItem value={true}>Administrador</MenuItem>
                         </Select>
 
-                        <Button variant="contained" color="primary" onClick={handleLogin} sx={{ backgroundColor: "#5613AA", borderRadius: '10px', }}>
+                        <Button variant="contained" color="primary" onClick={handleLogin} sx={{marginTop: "10px", borderRadius: "10px", backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
                             Entrar
                         </Button>
                     </form>
@@ -77,7 +81,7 @@ const SignUp = () => {
                     <Typography pl={2} align='center' sx={{ fontSize: "30px", fontWeight: "bold", color: "white" }}>Bem vindo a Paggue Tickets</Typography>
                     <Typography pl={2} pb={2} align='center' sx={{ fontSize: "10px", color: "white" }}>Entre já sua conta e não perca nenhum evento!</Typography>
                     <Link to="/login" style={{ textDecoration: 'none' }}>
-                        <Button variant="contained" sx={{ backgroundColor: "white", borderRadius: '10px', }}>
+                        <Button variant="contained" sx={{ backgroundColor: "white", borderRadius: '10px', '&:hover': {backgroundColor: "#9d63e6"} }}>
                             <Typography sx={{ color: "#5613AA", fontWeight: "bold" }}>Fazer login</Typography>
                         </Button>
                     </Link>

@@ -68,11 +68,14 @@ export default function FormularioPagamento() {
       )}
 
       {metodoPagamento === 'pix' && (
-        <Box>
+        <Box display="flex" flexDirection="column">
           <Button variant="contained" onClick={gerarQRCode} sx={{ marginBottom: 2 }}>
             Gerar QR Code
           </Button>
-          {qrCodeData && <QRCode value={qrCodeData} />}
+          <Box justifyContent="center"> 
+            {qrCodeData && <QRCode value={qrCodeData} />}
+          </Box>
+          
         </Box>
       )}
     </>

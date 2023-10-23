@@ -55,7 +55,7 @@ const IngressoSelector = ({ data }) => {
                 <TableRow key={item.nome}>
                   <TableCell>{item.date}</TableCell>
                   <TableCell>{s.nome}</TableCell>
-                  <TableCell>{s.valorTicket}</TableCell>
+                  <TableCell>R$ {s.valorTicket}</TableCell>
                   <TableCell>
                     <Box
                       sx={{
@@ -87,7 +87,7 @@ const IngressoSelector = ({ data }) => {
           <Link onClick={() => {
             setValorTotalState(getTotalCompra())
           }} to="/checkout">
-            <Button variant="contained" color="primary" sx={{ backgroundColor: "#5613AA", borderRadius: '10px' }}>
+            <Button variant="contained" color="primary" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
               Adicionar ao carrinho
             </Button>
           </Link>

@@ -1,8 +1,8 @@
 import React from "react";
-import { Container, Grid, Box, Typography, Button } from "@mui/material";
+import { Container, Grid, Box, Typography } from "@mui/material";
 import EventoInfo from "../../components/EventoInfo";
 import IngressoSelector from "../../components/IngressoSelector";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useEvent from "../../hooks/useEvent";
 
 const PageEvento = () => {

@@ -1,13 +1,12 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Button } from '@mui/material'
 import React from 'react'
 
 const styles = {
   container: {
-    display: 'grid',
-    flexDirection: 'column',
-    gridTemplateColumns: "repeat(12, 1fr)",
+    display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: "center"
+    alignItems: "center",
   },
   box: {
     width: '800px',
@@ -24,14 +23,16 @@ const styles = {
   textContainer: {
     marginTop: '10px',
     textAlign: 'left',
-    display: 'flex', 
-    justifyContent: 'left', 
-    flexDirection: 'column', 
+    display: 'flex',
+    flexDirection: 'column',
     alignItems: 'left',
     marginLeft: '10px',
   },
   info: {
     fontSize: '1rem',
+    color: 'white',
+    textAlign: 'center',
+    alignItems: 'flex-end',
   },
 }
 
@@ -42,21 +43,25 @@ const caixaDestaque = ({ imageUrl, address, date, title }) => {
         <img src={imageUrl} alt="Imagem" style={styles.image} />
       </Box>
       <Box sx={{
-        backgroundColor: "purple",
+        backgroundColor: "#5613AA",
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'left',
+        alignItems: 'center',
         height: "400px",
         width: "300px",
       }}>
-        <Box>
-          <Typography variant='h5' color= "white" fontWeight="900">{title}</Typography>
+        <Box sx={{marginTop: "20px", marginBottom: "20px"}}>
+          <Typography variant='h5' color="white" fontWeight="900">{title}</Typography>
         </Box>
         <div style={styles.info}>
           <div>{address}</div>
           <div>{date}</div>
         </div>
+        <Button variant="contained" type="submit" sx={{ backgroundColor: "white", fontWeight: "bold", marginTop:"50px",'&:hover': { backgroundColor: "#9d63e6" }}}>
+          <Typography variant='h5' color="#5613AA" fontWeight="900">Compre agora</Typography>
+        </Button>
       </Box>
+
     </div>
   );
 };

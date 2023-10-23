@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Avatar, Box } from '@mui/material';
+import { Button, Avatar, Box, Typography } from '@mui/material';
 
 const styles = {
   input: {
@@ -11,6 +11,8 @@ const styles = {
   },
   button: {
     marginTop: '16px',
+    backgroundColor: 'white',
+    '&:hover': {backgroundColor: "#9d63e6"}
   },
   text: {
     marginTop: '8px',
@@ -40,7 +42,7 @@ const AvatarUpload = () => {
       <Avatar alt="Avatar" src={avatarImage} sx={styles.avatar} />
       {avatarImage ? (
         <Button variant="contained" color="secondary" onClick={handleRemoveAvatar} sx={styles.button}>
-          Remover Avatar
+          <Typography color={"#5613AA"} fontWeight="700">Remover Avatar</Typography>
         </Button>
       ) : (
         <React.Fragment>
@@ -53,7 +55,7 @@ const AvatarUpload = () => {
           />
           <label htmlFor="avatar-upload">
             <Button variant="contained" component="span" sx={styles.button}>
-              Carregar Avatar
+              <Typography color={"#5613AA"} fontWeight="700">Carregar Avatar</Typography>
             </Button>
           </label>
         </React.Fragment>

@@ -58,7 +58,7 @@ const EventoInfo = (props) => {
 
                                 <Grid sx={{ display: "flex", justifyContent: "center" }}>
                                     <Box marginTop="10px">
-                                        <Button href="#checkout" variant="contained" sx={{ backgroundColor: "#5613AA", borderRadius: '10px' }}>
+                                        <Button href="#checkout" variant="contained" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
                                             Comprar ingressos
                                         </Button>
                                     </Box>

@@ -20,7 +20,7 @@ const TabEventos = () => {
     <>
       <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography sx={{ fontWeight: "800", fontSize: "40px" }}> Eventos Cadastrados </Typography>
-        <Button variant="contained" onClick={handleOpenModal}>Cadastrar</Button>
+        <Button variant="contained" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}} onClick={handleOpenModal}>Novo evento</Button>
       </Box>
       <Box>
         <TabelaEventos data={data} />

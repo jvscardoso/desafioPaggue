@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-const TabelaCupom = ({ data, onEditar, onExcluir }) => {
+const TabelaCupom = ({ data }) => {
     return (
         <TableContainer component={Paper}>
             <Table>
@@ -17,23 +17,24 @@ const TabelaCupom = ({ data, onEditar, onExcluir }) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data?.map((item) => {
-                        return <TableRow key={item.id}>
-                            <TableCell>{item.ingresso.cupom.nome}</TableCell>
-                            <TableCell>{item.ingresso.cupom.valor}</TableCell>
-                            <TableCell>{item.ingresso.cupom.expirationDate}</TableCell>
-                            <TableCell>{item.ingresso.cupom.qtd}</TableCell>
-                            <TableCell>
-                                <IconButton color="primary">
-                                    <EditOutlinedIcon />
-                                </IconButton>
-                                <IconButton color="secondary">
-                                    <DeleteOutlineOutlinedIcon />
-                                </IconButton>
-                            </TableCell>
-                        </TableRow>
-                    }
-                    )}
+                    {data?.map((item, index) => (
+                        item.ingresso.cupom.map((cupom, cupomIndex) => (
+                            <TableRow key={`${index}-${cupomIndex}`}>
+                                <TableCell>{cupom.nome}</TableCell>
+                                <TableCell>{cupom.valor}</TableCell>
+                                <TableCell>{cupom.expirationDate}</TableCell>
+                                <TableCell>{cupom.qtd}</TableCell>
+                                <TableCell>
+                                    <IconButton color="primary">
+                                        <EditOutlinedIcon />
+                                    </IconButton>
+                                    <IconButton color="secondary">
+                                        <DeleteOutlineOutlinedIcon />
+                                    </IconButton>
+                                </TableCell>
+                            </TableRow>
+                        ))
+                    ))}
                 </TableBody>
             </Table>
         </TableContainer>

@@ -54,7 +54,7 @@ const FormLote = () => {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Button variant="contained" color="primary" fullWidth type="submit">
+                    <Button variant="contained" color="primary" type="submit" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
                         Novo lote
                     </Button>
                 </Grid>
