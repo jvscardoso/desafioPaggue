@@ -11,7 +11,7 @@ const PageEvento = () => {
   const data = eventos.filter(item => {return item.id === Number(id)})
 
   return (
-    <Container style={{ marginTop: "50px", width:"100%" }}>
+    <Container style={{ marginTop: "50px", width:"100%", backgroundColor: "#F5F5F5"}}>
       <Grid container spacing={3} style={{width:"100%"}}>
         {/*INFORMAÇÕES*/}
         <Grid item width="100%">

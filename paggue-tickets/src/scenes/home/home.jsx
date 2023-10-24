@@ -9,7 +9,7 @@ const Home = () => {
   const { eventos } = useEvent()
 
   return (
-    <Container sx={{ minWidth: "100%", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }} >
+    <Container sx={{minWidth: "100%", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", backgroundColor: "#F5F5F5"}} >
       <Typography sx={{ fontWeight: "800", fontSize: "40px", textAlign: "left", width:"100%" }}> PRINCIPAIS EVENTOS DO MÊS </Typography>
       {/* EVENTOS*/}
       <Box sx={{ alignContent: 'center', display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "20px", marginBottom: "50px",}}>

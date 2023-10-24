@@ -154,7 +154,7 @@ const FormEventos = () => {
                     Cadastrar evento
                 </Button>
             </Grid>
-            <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+            <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
                 <MuiAlert elevation={6} variant="filled" onClose={handleSnackbarClose} severity={snackbarSeverity}>
                     {snackbarMessage}
                 </MuiAlert>

@@ -28,11 +28,9 @@ const FormCupom = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (isValid()) {
-            // Lógica para lidar com o envio do formulário em caso de sucesso
             setSnackbarSeverity('success');
             setSnackbarMessage('Cupom cadastrado com sucesso!');
         } else {
-            // Lógica para lidar com o envio do formulário em caso de erro
             setSnackbarSeverity('error');
             setSnackbarMessage('Por favor, preencha todos os campos obrigatórios.');
         }
@@ -52,7 +50,7 @@ const FormCupom = () => {
                         onChange={handleChange('titulo')}
                     />
                 </Grid>
-                
+
                 <Grid item xs={12}>
                     <TextField
                         fullWidth
@@ -78,12 +76,12 @@ const FormCupom = () => {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Button variant="contained" color="primary" type="submit" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
+                    <Button variant="contained" color="primary" type="submit" sx={{ backgroundColor: "#5613AA", fontWeight: "bold", '&:hover': { backgroundColor: "#9d63e6" } }}>
                         Cadastrar cupom
                     </Button>
                 </Grid>
             </Grid>
-            <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+            <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
                 <MuiAlert elevation={6} variant="filled" onClose={handleSnackbarClose} severity={snackbarSeverity}>
                     {snackbarMessage}
                 </MuiAlert>

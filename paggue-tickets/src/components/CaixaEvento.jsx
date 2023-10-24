@@ -5,6 +5,7 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
+    backgroundColor: "white"
   },
   box: {
     width: '400px', 

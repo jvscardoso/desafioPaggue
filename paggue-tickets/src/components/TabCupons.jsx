@@ -17,7 +17,7 @@ const TabCupons = () => {
   };
 
   return (
-    <Box>
+    <>
       <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography sx={{ fontWeight: "800", fontSize: "40px"}}> Cupons Cadastrados </Typography>
         <Button variant="contained" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}} onClick={handleOpenModal}>Novo cupom</Button>
@@ -40,8 +40,7 @@ const TabCupons = () => {
           <FormCupom />
         </Box>
       </Modal>
-      
-    </Box>
+    </>
   );
 };
 
