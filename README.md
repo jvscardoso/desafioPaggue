@@ -12,7 +12,7 @@ A paggue tickets é a solução ideal para o seu negócio de
 
 ## Uso    
 1. Para iniciar, abra um terminal e insira o seguinte comando para inciar o Json server:
-2. `json-server-auth --watch db.json`
+2. `json-server-auth --watch db.json` ou `npx json-server-auth --watch db.json`
 3. Em seguinda, abra um segundo terminal e inicie o servidor utilizando o comando 
 4.  `npm start`
 
