@@ -1,6 +1,6 @@
 # Rei informática - Painel Financeiro
 
-[Protótipo]([https://www.figma.com/file/WznqgeN9bUdrGHbA0WPIIP/Desafio-Paggue?type=design&node-id=0%3A1&mode=design&t=LujQHqToAHNRFCUS-1](https://www.figma.com/file/99WyeqNTEZpIzwLlBrwJMP/SYSCON?type=design&node-id=0-1&mode=design&t=eYHOkbIntqy614CD-0))
+[Protótipo](https://www.figma.com/file/99WyeqNTEZpIzwLlBrwJMP/SYSCON?type=design&node-id=0-1&mode=design&t=eYHOkbIntqy614CD-0)
 
 ## Descrição
 Uma versão visualmente melhorada do BP do SOFCON. 
