@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Box,Typography, Button, Modal } from '@mui/material';
-import useEvent from '../hooks/useEvent';
 import TabelaCupom from './TabelaCupom';
 import FormCupom from './FormCupom';
+import useCupons from '../hooks/useCupons';
 
 const TabCupons = () => {
-  const eventos = useEvent()
-  const data = eventos.eventos
-
+  const cupons = useCupons()
+  const data = cupons.cupons
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpenModal = () => {
     setModalOpen(true);

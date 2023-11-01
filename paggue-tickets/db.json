@@ -23,14 +23,6 @@
             "valorTicket": 500
           }
         ],
-        "cupom": [
-          {
-            "nome": "DESCONTAO",
-            "valor": 50,
-            "qtd": 10,
-            "expirationDate": "15/09/2023"
-          }
-        ],
         "lote": [
           {
             "id": 1,
@@ -67,14 +59,6 @@
             "capacidade": 2000,
             "ticketDisponivel": 1000,
             "valorTicket": 50
-          }
-        ],
-        "cupom": [
-          {
-            "nome": "DESCONTAO",
-            "valor": 50,
-            "qtd": 10,
-            "expirationDate": "15/09/2023"
           }
         ],
         "lote": [
@@ -121,14 +105,6 @@
             "valorTicket": 25
           }
         ],
-        "cupom": [
-          {
-            "nome": "NatanEZe",
-            "valor": 50,
-            "qtd": 10,
-            "expirationDate": "15/09/2023"
-          }
-        ],
         "lote": [
           {
             "id": 1,
@@ -165,14 +141,6 @@
             "capacidade": 2000,
             "ticketDisponivel": 1100,
             "valorTicket": 100
-          }
-        ],
-        "cupom": [
-          {
-            "nome": "AdeusTitã",
-            "valor": 50,
-            "qtd": 10,
-            "expirationDate": "15/09/2023"
           }
         ],
         "lote": [
@@ -215,6 +183,32 @@
       "telefone": "(00) 12345-6789",
       "isAdmin": false,
       "id": 3
+    }
+  ],
+  "cupons": [
+    {
+      "nome": "AdeusTitã",
+      "valor": 50,
+      "qtd": 10,
+      "expirationDate": "15/09/2023"
+    },
+    {
+      "nome": "CUPOM50",
+      "valor": 50,
+      "qtd": 10,
+      "expirationDate": "15/09/2023"
+    },
+    {
+      "nome": "CUPOM10",
+      "valor": 10,
+      "qtd": 10,
+      "expirationDate": "31/12/2024"
+    },
+    {
+      "nome": "oGerenteEnlouqueceu",
+      "valor": 80,
+      "qtd": 10,
+      "expirationDate": "31/12/2023"
     }
   ]
 }

@@ -10,7 +10,6 @@ import FormSetores from './FormSetores';
 
 const TabelaEventos = ({ data }) => {
     const { idEvento, setIdEvento } = React.useContext(Context)
-
     const [openSetoresModal, setOpenSetoresModal] = useState(false);
     const [openLotesModal, setOpenLotesModal] = useState(false);
 

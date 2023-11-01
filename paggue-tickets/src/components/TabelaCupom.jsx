@@ -17,23 +17,22 @@ const TabelaCupom = ({ data }) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data?.map((item, index) => (
-                        item.ingresso.cupom.map((cupom, cupomIndex) => (
-                            <TableRow key={`${index}-${cupomIndex}`}>
-                                <TableCell>{cupom.nome}</TableCell>
-                                <TableCell>{cupom.valor}</TableCell>
-                                <TableCell>{cupom.expirationDate}</TableCell>
-                                <TableCell>{cupom.qtd}</TableCell>
-                                <TableCell>
-                                    <IconButton color="primary">
-                                        <EditOutlinedIcon />
-                                    </IconButton>
-                                    <IconButton color="secondary">
-                                        <DeleteOutlineOutlinedIcon />
-                                    </IconButton>
-                                </TableCell>
-                            </TableRow>
-                        ))
+                    {data?.map((item) => (
+                        <TableRow key={item.id}>
+                            <TableCell>{item.nome}</TableCell>
+                            <TableCell>{item.valor}</TableCell>
+                            <TableCell>{item.expirationDate}</TableCell>
+                            <TableCell>{item.qtd}</TableCell>
+                            <TableCell>
+                                <IconButton color="primary">
+                                    <EditOutlinedIcon />
+                                </IconButton>
+                                <IconButton color="secondary">
+                                    <DeleteOutlineOutlinedIcon />
+                                </IconButton>
+                            </TableCell>
+                        </TableRow>
+
                     ))}
                 </TableBody>
             </Table>
