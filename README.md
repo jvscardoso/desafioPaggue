@@ -3,7 +3,7 @@
 [Protótipo](https://www.figma.com/file/WznqgeN9bUdrGHbA0WPIIP/Desafio-Paggue?type=design&node-id=0%3A1&mode=design&t=LujQHqToAHNRFCUS-1)
 
 ## Descrição
-A paggue tickets é a solução ideal para o seu negócio de 
+A paggue tickets é a solução ideal para o seu negócio de venda ingressos.
 
 ## Instalação
 1. Clone o repositório: `git clone https://github.com/jvscardoso/desafioPaggue.git`
