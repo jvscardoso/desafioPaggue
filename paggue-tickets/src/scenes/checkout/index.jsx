@@ -49,7 +49,6 @@ const Checkout = () =>{
       console.log("Cupom válido encontrado");
       const desconto = cupomValido.valor; 
       const valorTotalComDesconto = ValorTotalState - (ValorTotalState * (desconto / 100));
-      // Atualize o ValorTotalState usando a função setValorTotalState do contexto
       setValorTotalState(valorTotalComDesconto);
       console.log(cupomValido);
     } else {
@@ -71,18 +70,10 @@ const Checkout = () =>{
                     {step.content}
                     <Box sx={{ mb: 2 }}>
                       <div>
-                        <Button
-                          variant="contained"
-                          onClick={handleNext}
-                          sx={{ mt: 1, mr: 1 }}
-                        >
+                        <Button variant="contained" onClick={handleNext}sx={{ mt: 1, mr: 1 }}>
                           {index === steps.length - 1 ? 'Finalizar' : 'Próximo'}
                         </Button>
-                        <Button
-                          disabled={index === 0}
-                          onClick={handleBack}
-                          sx={{ mt: 1, mr: 1 }}
-                        >
+                        <Button disabled={index === 0} onClick={handleBack}sx={{ mt: 1, mr: 1 }}>
                           Voltar
                         </Button>
                       </div>

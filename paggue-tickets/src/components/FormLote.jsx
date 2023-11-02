@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, Snackbar } from '@mui/material';
+import { TextField, Grid, Snackbar } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 
 const FormLote = () => {
@@ -68,12 +68,6 @@ const FormLote = () => {
                             shrink: true,
                         }}
                     />
-                </Grid>
-
-                <Grid item xs={12}>
-                    <Button variant="contained" color="primary" type="submit" sx={{backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
-                        Novo lote
-                    </Button>
                 </Grid>
             </Grid>
 

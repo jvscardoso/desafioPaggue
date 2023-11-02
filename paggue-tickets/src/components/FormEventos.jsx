@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, MenuItem, InputAdornment, Typography, Snackbar } from '@mui/material';
+import { TextField, Grid, MenuItem, InputAdornment, Snackbar } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 
 const tiposDeEvento = ['Concerto', 'Festival', 'Conferência', 'Outro'];
@@ -47,7 +47,6 @@ const FormEventos = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <Typography sx={{ fontWeight: "800", fontSize: "40px" }}> Cadastrar novo evento </Typography>
             <Grid container spacing={2}>
             <Grid item xs={12}>
                     <TextField
@@ -148,11 +147,6 @@ const FormEventos = () => {
                         ))}
                     </TextField>
                 </Grid>
-            </Grid>
-            <Grid item xs={12} alignItems="center">
-                <Button variant="contained" type="submit" sx={{marginTop:"10px", backgroundColor:"#5613AA", fontWeight:"bold", '&:hover': {backgroundColor: "#9d63e6"}}}>
-                    Cadastrar evento
-                </Button>
             </Grid>
             <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
                 <MuiAlert elevation={6} variant="filled" onClose={handleSnackbarClose} severity={snackbarSeverity}>
