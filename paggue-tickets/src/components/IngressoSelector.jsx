@@ -46,6 +46,7 @@ const IngressoSelector = ({ data }) => {
               <TableCell>Data</TableCell>
               <TableCell>Descrição</TableCell>
               <TableCell>Preço</TableCell>
+              <TableCell>Ingressos disponíveis</TableCell>
               <TableCell>Quantidade</TableCell>
             </TableRow>
           </TableHead>
@@ -56,6 +57,7 @@ const IngressoSelector = ({ data }) => {
                   <TableCell>{item.date}</TableCell>
                   <TableCell>{s.nome}</TableCell>
                   <TableCell>R$ {s.valorTicket}</TableCell>
+                  <TableCell>{s.ticketDisponivel}</TableCell>
                   <TableCell>
                     <Box
                       sx={{

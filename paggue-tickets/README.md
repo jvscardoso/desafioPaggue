@@ -13,8 +13,10 @@ A paggue tickets é a solução ideal para o seu negócio de
 ## Uso    
 1. Para iniciar, abra um terminal e insira o seguinte comando para inciar o Json server:
 2. `json-server-auth --watch db.json` ou `npx json-server-auth --watch db.json`
-3. Em seguinda, abra um segundo terminal e inicie o servidor utilizando o comando 
+3. Em seguida, abra um segundo terminal e inicie a aplicação utilizando o comando: 
 4.  `npm start`
+5. Em seguida, abra um terceiro terminal e inicie o servidor do WebSocket com o comando:
+6. `node socketServer.js`
 
 ## Contato
 Estou aberto para qualquer dúvida ou sugestão, para me contatar, basta me enviar um email para: [jvscardoso7@gmail.com](mailto:jvscardoso7@gmail.com)

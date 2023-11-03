@@ -1,38 +1,51 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import FormularioPagamento from '../../components/FormPagamento';
 import FormularioEnvio from '../../components/FormEnvio';
 import PersonalInfo from '../../components/FormPersonal_info';
-import { Typography, Paper, Button, StepContent, StepLabel, Step, Stepper, Box, Grid, Container, TextField, Divider } from '@mui/material';
+import { Typography, Paper, Button, StepContent, StepLabel, Step, Stepper, Box, Grid, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/context';
-import useCupons from '../../hooks/useCupons';
+import io from 'socket.io-client';
+import CompraResumo from '../../components/CompraResumo';
 
-const Checkout = () =>{
+const socket = io('http://localhost:3002');
+
+const Checkout = () => {
   const [activeStep, setActiveStep] = React.useState(0);
-  const { ValorTotalState, setValorTotalState } = useContext(Context);
-  const [couponCode, setCouponCode] = React.useState('');
-  const cupons = useCupons()
-  const data = cupons.cupons
+  const { personalInfo } = useContext(Context)
+  const { formularioEnvio } = useContext(Context)
 
   const steps = [
     {
+      label: 'Resumo da compra',
+      content: <CompraResumo step={1} />
+    },
+    {
       label: 'Informações Pessoais',
-      content: <PersonalInfo step={1} />
+      content: <PersonalInfo step={2} />
     },
     {
       label: 'Informações de Envio',
-      content: <FormularioEnvio step={2} />,
+      content: <FormularioEnvio step={3} />
     },
     {
       label: 'Informações de Pagamento',
-      content: <FormularioPagamento step={3} />,
+      content: <FormularioPagamento step={4} />
     },
+    {
+      label: 'Confirmação de compra',
+      content:
+        <>
+          <Typography> Confirma agora a sua compra</Typography>
+          <Typography>Nome: {personalInfo.nome}</Typography>
+          <Typography>CPF: {personalInfo.cpf}</Typography>
+          <Typography>Endereço: {personalInfo.endereco}</Typography>
+          {formularioEnvio.envioEmail && <Typography>Forma de Envio: Email</Typography>}
+          {formularioEnvio.envioSMS && <Typography>Forma de Envio: SMS</Typography>}
+        </>
+    }
   ];
-
-  const handleCouponChange = (event) => {
-    setCouponCode(event.target.value);
-  };
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -42,19 +55,15 @@ const Checkout = () =>{
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleCouponValidation = () => {
-    const cupomValido = data.find((cupom) => cupom.nome === couponCode);
-  
-    if (cupomValido) {
-      console.log("Cupom válido encontrado");
-      const desconto = cupomValido.valor; 
-      const valorTotalComDesconto = ValorTotalState - (ValorTotalState * (desconto / 100));
-      setValorTotalState(valorTotalComDesconto);
-      console.log(cupomValido);
-    } else {
-      console.log("Cupom inválido");
-    }
+  const handleConfirmarCompra = () => {
+    // Envia a mensagem para o servidor WebSocket
+    socket.emit('confirmarCompra', { mensagem: 'Compra confirmada!' });
+
+    // Atualiza o estado ou executa outras ações necessárias após confirmar a compra
+    // ...
   };
+
+
 
   return (
     <>
@@ -70,10 +79,10 @@ const Checkout = () =>{
                     {step.content}
                     <Box sx={{ mb: 2 }}>
                       <div>
-                        <Button variant="contained" onClick={handleNext}sx={{ mt: 1, mr: 1 }}>
+                        <Button variant="contained" onClick={handleNext} sx={{ mt: 1, mr: 1 }}>
                           {index === steps.length - 1 ? 'Finalizar' : 'Próximo'}
                         </Button>
-                        <Button disabled={index === 0} onClick={handleBack}sx={{ mt: 1, mr: 1 }}>
+                        <Button disabled={index === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>
                           Voltar
                         </Button>
                       </div>
@@ -85,40 +94,13 @@ const Checkout = () =>{
                 <Paper square elevation={0} sx={{ p: 3 }}>
                   <Typography>Pagamento registrado!</Typography>
                   <Link to="/">
-                    <Button sx={{ mt: 1, mr: 1 }}>
-                      Voltar a página inicial
+                    <Button onClick={handleConfirmarCompra} sx={{ mt: 1, mr: 1 }}>
+                      Confirmar Compra
                     </Button>
                   </Link>
                 </Paper>
               )}
             </Stepper>
-          </Box>
-        </Grid>
-
-        {/* Resumo da compra */}
-        <Grid item>
-          <Box sx={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}>
-            <Typography sx={{ backgroundColor: "#5613AA", display: 'flex', }} padding={5} color={"white"} variant='h5' fontWeight="700">Resumo da compra</Typography>
-            <Box>
-              <TextField
-                label="Cupom"
-                variant="outlined"
-                value={couponCode}
-                onChange={handleCouponChange}
-                sx={{ mt: 2 }}
-              />
-              <Button variant="contained" onClick={handleCouponValidation} sx={{ mt: 1 }}>
-                Validar Cupom
-              </Button>
-            </Box>
-
-            <Divider />
-
-            <Box sx={{ minHeight: "400px", display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%", minWidth: "400px" }}>
-              <Typography variant='h5' fontWeight="700">Valor Total:</Typography>
-              <Typography color={"#5613AA"} variant='h5' fontWeight="700"> R${ValorTotalState}</Typography>
-            </Box>
-            
           </Box>
         </Grid>
       </Container>

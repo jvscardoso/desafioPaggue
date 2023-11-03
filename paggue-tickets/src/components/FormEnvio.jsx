@@ -1,28 +1,34 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
+import { Context } from '../context/context';
 
 export default function FormularioEnvio(props) {
-  const [envioEmail, setEnvioEmail] = React.useState(false);
-  const [envioSMS, setEnvioSMS] = React.useState(false);
+  const {formularioEnvio, setFormularioEnvio} = useContext(Context);
 
   const handleEmailChange = (event) => {
-    setEnvioEmail(event.target.checked);
+    setFormularioEnvio({
+      ...formularioEnvio,
+      envioEmail: event.target.checked,
+    });
   };
 
   const handleSMSChange = (event) => {
-    setEnvioSMS(event.target.checked);
+    setFormularioEnvio({
+      ...formularioEnvio,
+      envioSMS: event.target.checked,
+    });
   };
 
   return (
     <FormGroup>
       <FormControlLabel
-        control={<Checkbox checked={envioEmail} onChange={handleEmailChange} />}
+        control={<Checkbox checked={formularioEnvio.envioEmail} onChange={handleEmailChange} />}
         label="Enviar por Email"
       />
       <FormControlLabel
-        control={<Checkbox checked={envioSMS} onChange={handleSMSChange} />}
+        control={<Checkbox checked={formularioEnvio.envioSMS} onChange={handleSMSChange} />}
         label="Enviar por SMS"
       />
     </FormGroup>

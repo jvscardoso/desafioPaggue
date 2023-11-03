@@ -1,56 +1,48 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
+import { Context } from '../context/context';
+import { useContext } from 'react';
 
-export default function PersonalInfo(props) {
-  const { step } = props;
-
-  const [formData, setFormData] = React.useState({
-    nome: '',
-    cpf: '',
-    endereco: '',
-  });
+export default function PersonalInfo() {
+  const { personalInfo, setPersonalInfo } = useContext(Context)
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData({
-      ...formData,
+    setPersonalInfo({
+      ...personalInfo,
       [name]: value,
     });
   };
 
   return (
-    <>
-      {step === 1 && (
-        <form>
-          <TextField
-            label="Nome"
-            name="nome"
-            value={formData.nome}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            variant="outlined"
-          />
-          <TextField
-            label="CPF"
-            name="cpf"
-            value={formData.cpf}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            variant="outlined"
-          />
-          <TextField
-            label="Endereço"
-            name="endereco"
-            value={formData.endereco}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            variant="outlined"
-          />
-        </form>
-      )}
-    </>
+      <form>
+        <TextField
+          label="Nome"
+          name="nome"
+          value={personalInfo.nome}
+          onChange={handleChange}
+          fullWidth
+          margin="normal"
+          variant="outlined"
+        />
+        <TextField
+          label="CPF"
+          name="cpf"
+          value={personalInfo.cpf}
+          onChange={handleChange}
+          fullWidth
+          margin="normal"
+          variant="outlined"
+        />
+        <TextField
+          label="Endereço"
+          name="endereco"
+          value={personalInfo.endereco}
+          onChange={handleChange}
+          fullWidth
+          margin="normal"
+          variant="outlined"
+        />
+      </form>
   );
 }
