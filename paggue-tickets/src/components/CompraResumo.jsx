@@ -29,23 +29,16 @@ const CompraResumo = () => {
 
     return (
         <>
-            <Typography>Resumo da compra</Typography>
-            <Box>
-                <TextField
-                    label="Cupom"
-                    variant="outlined"
-                    value={couponCode}
-                    onChange={handleCouponChange}
-                    sx={{ mt: 2 }}
-                />
-                <Button variant="contained" onClick={handleCouponValidation} sx={{ mt: 1 }}>
+            <Box display="flex" flexDirection="row" alignItems="center" marginBottom={2}>
+                <TextField label="Cupom" variant="outlined" value={couponCode} onChange={handleCouponChange} sx={{ mt: 2 }}/>
+                <Button variant="contained" onClick={handleCouponValidation} sx={{ backgroundColor: "#5613AA", fontWeight: "bold", mt: 1, ml: 1, '&:hover': { backgroundColor: "#9d63e6" } }}>
                     Validar Cupom
                 </Button>
             </Box>
 
             <Divider />
 
-            <Box>
+            <Box display="flex" flexDirection="row" alignItems="center" marginTop={2}>
                 <Typography variant='h5' fontWeight="700">Valor Total:</Typography>
                 <Typography color={"#5613AA"} variant='h5' fontWeight="700"> R${ValorTotalState}</Typography>
             </Box>
